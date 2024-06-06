@@ -1,0 +1,37 @@
+<ion-content [fullscreen]="true">
+  <ion-header [translucent]="true">   
+    <ion-toolbar>   
+      <ion-title>   
+        Forecast   
+      </ion-title>   
+    </ion-toolbar>   
+  </ion-header>   
+
+  <div id="container">
+    <ion-list>
+      <ion-item *ngFor="let forecastItem of forecast" (click)="detailpage(forecastItem)">
+        <ion-grid>
+          <ion-row style="align-items: center;">
+            <ion-col size="auto">
+              <ion-thumbnail>
+                <img src="http://openweathermap.org/img/wn/{{ forecastItem.weather[0].icon }}@2x.png">
+              </ion-thumbnail>
+            </ion-col>
+            <ion-col>
+              <p>
+                <ion-text style="font-size: small;">{{ forecastItem.weather[0].main }} - {{ forecastItem.weather[0].description }}</ion-text> <br>
+                <ion-text style="font-size: small;">{{ forecastItem.formattedDate }}</ion-text>
+              </p>
+            </ion-col>
+            <ion-col class="ion-text-right">
+              <p style="color: orange;">
+                <ion-text style="font-size: small;">{{ forecastItem.main.temp }} °C</ion-text> <br>
+                <ion-text style="font-size: x-small;">{{ forecastItem.tempMin }} °C - {{ forecastItem.tempMax }} °C</ion-text>
+              </p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

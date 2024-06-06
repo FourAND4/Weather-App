@@ -1,0 +1,25 @@
+<ion-content [fullscreen]="true" class="ion-text-center"> <!-- Menambahkan kelas ion-text-center untuk pusatkan konten -->
+  <ion-header [translucent]="true">   
+    <ion-toolbar>   
+      <ion-title>   
+        Weather Now  
+      </ion-title>   
+    </ion-toolbar>   
+  </ion-header>   
+  
+    <ion-grid> 
+      <ion-row>
+        <ion-col>
+          <h1 class="ion-60p">{{temp}} °C</h1> 
+          <div *ngFor="let w of weather.weather"> 
+            <img src="http://openweathermap.org/img/wn/{{w.icon}}@2x.png" height="180px"/> 
+            <h1 class="ion-30p"> 
+              {{city}}<br /> 
+              {{w.main}}<br /> 
+              (<small> {{w.description}}</small>) 
+            </h1> 
+          </div> 
+        </ion-col>
+      </ion-row>
+    </ion-grid> 
+  </ion-content>
